@@ -1,7 +1,7 @@
 import {Observable, of, Subscriber} from 'rxjs';
 import {map, switchMap} from "rxjs/operators";
 
-//observer.next will not execute when complete() is called
+// //observer.next will not execute when complete() is called
 // var completionTest = Observable.create((observer: any) => {
 //     observer.next('Hello World!');
 //     observer.next('Hello Again!');
@@ -119,34 +119,5 @@ obTest3.pipe(
     logItem(value);
 });
 
-// function func1(mathFunction: (num1: number, num2: number) => number): number{
-//     return mathFunction(1, 2);
-// }
-//
-// //addd number
-// let addNum = function (num1: number, num2: number) : number {
-//     return num1 + num2;
-// };
-//
-// func1(addNum);
-// // or this
-// func1((num1, num2) => {
-//     return num1 + num2;
-// });
-//
-//
-// //subtraction num
-// let subNum = function (num1: number, num2: number) : number {
-//     return num2 - num1;
-// };
-//
-// func1(subNum);
-// // or this
-//
-// func1((num1, num2) => {
-//     return num1 + num2;
-// });
-//
-// func1((num1, num2) => num2 - num2);
 
 
