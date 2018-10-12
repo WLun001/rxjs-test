@@ -1,4 +1,4 @@
-code will not execute after `completion`
+#### code will not execute after `completion`
 ```typescript
 var completionTest = Observable.create((observer: any) => {
      observer.next('Hello World!');
@@ -16,7 +16,7 @@ var completionTest = Observable.create((observer: any) => {
 
 ```
 
-code will not execute after `unsubscribe` in a subscription
+#### code will not execute after `unsubscribe` in a subscription
 ```typescript
 
 var observableWithSubscribeWithin = new Observable(observer => {
@@ -29,7 +29,7 @@ var observableWithSubscribeWithin = new Observable(observer => {
 });
 ```
 
-consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
+#### consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
 ```typescript
 
 const firstObservable = new Observable(subscriber => {
@@ -55,7 +55,7 @@ let secondObservable = new Observable(subscriber => {
 
 
 ```
-instead of nesting observables like this
+##### instead of nesting observables like this
 ```typescript
 firstObservable.subscribe(res => {
         if (res > 2) {
@@ -67,7 +67,7 @@ firstObservable.subscribe(res => {
 )
 ```
 
-apply operator like this
+##### apply operator like this
 ```typescript
 firstObservable.pipe(
     map(value => value),
@@ -78,7 +78,7 @@ firstObservable.pipe(
 ```
 
 
-look at observable constructor signature
+#### look at observable constructor signature
 ```typescript
 constructor(subscribe?: (this: Observable<T>, subscriber: Subscriber<T>) => TeardownLogic);
 ```
@@ -93,13 +93,13 @@ export type TeardownLogic = Unsubscribable | Function | void;
 
 which means it can return either Unsubscribable, Function or void. This is call `union types`. so we can call in two different ways
 
-approach 1: return `void`
+##### approach 1: return `void`
 ```typescript
 let ob = new Observable(subscriber => {
 
 });
 ```
-approach 2: return `Function`
+##### approach 2: return `Function`
 ```typescript
 let ob2 = new Observable(subscriber => {
     return () => {
