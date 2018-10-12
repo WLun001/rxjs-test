@@ -7,4 +7,4 @@
 
 ### Example
 - [higher order function](example/HOF.md)
-- [observable](exammple/observable.md)
+- [observable](example/observable.md)
