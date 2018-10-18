@@ -1,3 +1,5 @@
+
+### Code execution order
 code will not execute after `completion`
 ```typescript
 var completionTest = Observable.create((observer: any) => {
@@ -28,8 +30,9 @@ var observableWithSubscribeWithin = new Observable(observer => {
     observer.next('Bye');
 });
 ```
-
+### Nesting observable
 consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
+#### Example 1
 ```typescript
 
 const firstObservable = new Observable(subscriber => {
@@ -77,7 +80,33 @@ firstObservable.pipe(
 });
 ```
 
+#### Example 2
+```typescript
+let numbers = [1,23,4,5,6,4,5,6,4,5,4,8,9,0,7,6,5,7,8,5,10,87,46,35,38,36,88];
+let words = ['hello', 'bye', 'haha', 'hehe', 'keke', 'hoho',];
 
+let ob1 = from(numbers);
+let ob2 = from(words);
+```
+
+this is the nesting observable
+```typescript
+ob1.subscribe((num ) => {
+    if (num % 2 === 0) {
+        ob2.subscribe(words => console.log(words));
+    }
+});
+```
+
+which can be refactor with operators
+```typescript
+ob1.pipe(
+    map(num => num),
+    switchMap(num => num % 2 === 0 ? ob2 : of())
+).subscribe(words => console.log(words));
+```
+
+### Return in observable
 look at observable constructor signature
 ```typescript
 constructor(subscribe?: (this: Observable<T>, subscriber: Subscriber<T>) => TeardownLogic);
