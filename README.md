@@ -8,3 +8,8 @@
 ### Example
 - [higher order function](example/HOF.md)
 - [observable](example/observable.md)
+
+### Resources
+- [Fixing RxJs Anti Patterns](http://www.syntaxsuccess.com/viewarticle/fixing-rxjs-anti-patterns)
+- [My Journey replacing Promises with RxJS](https://juristr.com/blog/2018/10/journey-promises-to-rxjs/)
+- [RxJS best practices in Angular](https://blog.strongbrew.io/rxjs-best-practices-in-angular/)
