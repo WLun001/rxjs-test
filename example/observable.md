@@ -1,6 +1,6 @@
-
 ### Code execution order
 code will not execute after `completion`
+
 ```typescript
 var completionTest = Observable.create((observer: any) => {
      observer.next('Hello World!');
@@ -18,7 +18,7 @@ var completionTest = Observable.create((observer: any) => {
 
 ```
 
-code will not execute after `unsubscribe` in a subscription
+#### code will not execute after `unsubscribe` in a subscription
 ```typescript
 
 var observableWithSubscribeWithin = new Observable(observer => {
@@ -30,9 +30,36 @@ var observableWithSubscribeWithin = new Observable(observer => {
     observer.next('Bye');
 });
 ```
+
+#### `completion` will not execute if `error`
+```typescript
+let ob = new Observable(subscriber => {
+    subscriber.next(1);
+    subscriber.error(2);
+    // the rest will not execute
+    subscriber.next();
+    subscriber.complete();
+
+    return () => {
+        // this will execute
+    };
+});
+
+ob.subscribe(next => {},
+    error => {
+    // error will execute
+    },
+    () => {
+    // completion will not execute
+});
+```
 ### Nesting observable
 consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
 #### Example 1
+=======
+
+#### consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
+>>>>>>> bb2abe0f92e64251ed13a45447037625e19f6e5f
 ```typescript
 
 const firstObservable = new Observable(subscriber => {
@@ -58,7 +85,7 @@ let secondObservable = new Observable(subscriber => {
 
 
 ```
-instead of nesting observables like this
+##### instead of nesting observables like this
 ```typescript
 firstObservable.subscribe(res => {
         if (res > 2) {
@@ -70,7 +97,7 @@ firstObservable.subscribe(res => {
 )
 ```
 
-apply operator like this
+##### apply operator like this
 ```typescript
 firstObservable.pipe(
     map(value => value),
@@ -106,8 +133,12 @@ ob1.pipe(
 ).subscribe(words => console.log(words));
 ```
 
+<<<<<<< HEAD
 ### Return in observable
 look at observable constructor signature
+=======
+#### look at observable constructor signature
+>>>>>>> bb2abe0f92e64251ed13a45447037625e19f6e5f
 ```typescript
 constructor(subscribe?: (this: Observable<T>, subscriber: Subscriber<T>) => TeardownLogic);
 ```
@@ -122,13 +153,13 @@ export type TeardownLogic = Unsubscribable | Function | void;
 
 which means it can return either Unsubscribable, Function or void. This is call `union types`. so we can call in two different ways
 
-approach 1: return `void`
+##### approach 1: return `void`
 ```typescript
 let ob = new Observable(subscriber => {
 
 });
 ```
-approach 2: return `Function`
+##### approach 2: return `Function`
 ```typescript
 let ob2 = new Observable(subscriber => {
     return () => {
