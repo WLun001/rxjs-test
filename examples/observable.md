@@ -152,16 +152,17 @@ export interface Unsubscribable {
 }
 export type TeardownLogic = Unsubscribable | Function | void;
 ```
+`TeardownLogic` is used for resource calming, more info on [ReactiveX](http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~TeardownLogicDoc.html) 
 
 which means it can return either Unsubscribable, Function or void. This is call `union types`. so we can call in two different ways
 
-##### approach 1: return `void`
+##### Approach 1: return `void`
 ```typescript
 let ob = new Observable(subscriber => {
 
 });
 ```
-##### approach 2: return `Function`
+##### Approach 2: return `Function`
 ```typescript
 let ob2 = new Observable(subscriber => {
     return () => {
@@ -169,3 +170,40 @@ let ob2 = new Observable(subscriber => {
     }
 });
 ```
+
+##### Approach 3: return `Unsubscribable`
+```typescript
+let ob1 = new Observable(subscriber => {
+    subscriber.next(1);
+    return subscriber.unsubscribe()
+});
+```
+
+### How and when to unsubscribe
+Subscription will unsubscribe when it is `complete` or unsubscribed in `teardownLogic`. To check if the `subscription` is still open or not, use the following property
+```typescript
+subscription.close
+```
+
+#### Using operators
+##### takeWhile
+It will auto unsubscribe when the number is greater than 70
+```typescript
+let subscription = ob1.pipe(
+    takeWhile((num: number) => num < 70)
+).subscribe((num: number) => console.log(num));
+```
+
+##### takeUntil
+```typescript
+let ob1 = from(numbers);
+let unsubscribe = new Subject();
+let sub = ob1.pipe(
+    takeUntil(unsubscribe)
+).subscribe(num => console.log(num));
+
+unsubscribe.unsubscribe();
+// either one will do
+unsubscribe.complete();
+```
+
