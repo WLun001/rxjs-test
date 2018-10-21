@@ -1,3 +1,19 @@
+- [Code execution order](#code-execution-order)
+  * [code will not execute after `unsubscribe` in a subscription](#code-will-not-execute-after--unsubscribe--in-a-subscription)
+  * [`completion` will not execute if `error`](#-completion--will-not-execute-if--error-)
+- [Nesting observable](#nesting-observable)
+  * [Example 1](#example-1)
+  * [consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`](#consider-we-have-two-observables--we-need-to-run-get-value-from--firstobservable---if-value---2--we-execute--secondobservable-)
+    + [instead of nesting observables like this](#instead-of-nesting-observables-like-this)
+    + [apply operator like this](#apply-operator-like-this)
+  * [Example 2](#example-2)
+- [Return in observable](#return-in-observable)
+  * [look at observable constructor signature](#look-at-observable-constructor-signature)
+    + [approach 1: return `void`](#approach-1--return--void-)
+    + [approach 2: return `Function`](#approach-2--return--function-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ### Code execution order
 code will not execute after `completion`
 
@@ -56,10 +72,8 @@ ob.subscribe(next => {},
 ### Nesting observable
 consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
 #### Example 1
-=======
 
 #### consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`
->>>>>>> bb2abe0f92e64251ed13a45447037625e19f6e5f
 ```typescript
 
 const firstObservable = new Observable(subscriber => {
@@ -133,12 +147,8 @@ ob1.pipe(
 ).subscribe(words => console.log(words));
 ```
 
-<<<<<<< HEAD
 ### Return in observable
-look at observable constructor signature
-=======
 #### look at observable constructor signature
->>>>>>> bb2abe0f92e64251ed13a45447037625e19f6e5f
 ```typescript
 constructor(subscribe?: (this: Observable<T>, subscriber: Subscriber<T>) => TeardownLogic);
 ```
