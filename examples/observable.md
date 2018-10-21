@@ -3,6 +3,7 @@
   * [Example 1](#example-1)
   * [Example 2](#example-2)
 - [Return in observable](#return-in-observable)
+- [How and when to unsubscribe](#how-and-when-to-unsubscribe)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
