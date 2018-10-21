@@ -1,11 +1,8 @@
 - [Code execution order](#code-execution-order)
-  * [code will not execute after `unsubscribe` in a subscription](#code-will-not-execute-after--unsubscribe--in-a-subscription)
-  * [`completion` will not execute if `error`](#-completion--will-not-execute-if--error-)
 - [Nesting observable](#nesting-observable)
   * [Example 1](#example-1)
   * [Example 2](#example-2)
 - [Return in observable](#return-in-observable)
-  * [look at observable constructor signature](#look-at-observable-constructor-signature)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
