@@ -6,8 +6,9 @@
 
 
 ### Example
-- [higher order function](example/HOF.md)
-- [observable](example/observable.md)
+- [Higher Order Function](example/HOF.md)
+- [Promise](example/promise.md)
+- [Observable](example/observable.md)
 
 ### Resources
 - [Fixing RxJs Anti Patterns](http://www.syntaxsuccess.com/viewarticle/fixing-rxjs-anti-patterns)
