@@ -3,14 +3,9 @@
   * [`completion` will not execute if `error`](#-completion--will-not-execute-if--error-)
 - [Nesting observable](#nesting-observable)
   * [Example 1](#example-1)
-  * [consider we have two observables, we need to run get value from `firstObservable`, if value > 2, we execute `secondObservable`](#consider-we-have-two-observables--we-need-to-run-get-value-from--firstobservable---if-value---2--we-execute--secondobservable-)
-    + [instead of nesting observables like this](#instead-of-nesting-observables-like-this)
-    + [apply operator like this](#apply-operator-like-this)
   * [Example 2](#example-2)
 - [Return in observable](#return-in-observable)
   * [look at observable constructor signature](#look-at-observable-constructor-signature)
-    + [approach 1: return `void`](#approach-1--return--void-)
-    + [approach 2: return `Function`](#approach-2--return--function-)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
