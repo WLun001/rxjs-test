@@ -187,7 +187,7 @@ subscription.close
 ```
 
 #### Using operators
-##### takeWhile
+##### `takeWhile()`
 It will auto unsubscribe when the number is greater than 70
 ```typescript
 let subscription = ob1.pipe(
@@ -195,7 +195,7 @@ let subscription = ob1.pipe(
 ).subscribe((num: number) => console.log(num));
 ```
 
-##### takeUntil
+##### `takeUntil()`
 ```typescript
 let ob1 = from(numbers);
 let unsubscribe = new Subject();
