@@ -40,7 +40,7 @@ var observableWithSubscribeWithin = new Observable(observer => {
 });
 ```
 
-#### `completion` will not execute if `error`
+#### `completion` will not execute if `error` and vice versa
 ```typescript
 let ob = new Observable(subscriber => {
     subscriber.next(1);
