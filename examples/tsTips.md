@@ -23,7 +23,7 @@ example(): {[key: string]: boolean} {
 
 ### Evaluate null and undefined
 ```typescript
-if( value ) {
+if(value) {
 }
 ```
 will evaluate to true if value is not:
