@@ -19,5 +19,18 @@ example(): {[key: string]: boolean} {
   retrun {key: '1'} // error
 }
 
-
 ```
+
+### Evaluate null and undefined
+```typescript
+if( value ) {
+}
+```
+will evaluate to true if value is not:
+
+- `null`
+- `undefined`
+- `NaN`
+- `empty string ''`
+- `0`
+- `false`
