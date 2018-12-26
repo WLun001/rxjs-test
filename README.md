@@ -10,6 +10,7 @@
 - [Higher Order Function](examples/HOF.md)
 - [Promise](examples/promise.md)
 - [Observable](examples/observable.md)
+- [Operators](examples/operators.md)
 
 ### Resources
 - [Fixing RxJs Anti Patterns](http://www.syntaxsuccess.com/viewarticle/fixing-rxjs-anti-patterns)
