@@ -34,3 +34,49 @@ will evaluate to true if value is not:
 - `empty string ''`
 - `0`
 - `false`
+
+
+### Spread Operator
+- Expand array or object
+```typescript
+const testObj = {
+    name: 'test',
+    description: 'hello'
+};
+
+const spreadopeartor = {
+    ...testObj,
+};
+```
+The output for `spreadoperator` would be
+```typescript
+{
+    name: 'this is name',
+    description: 'this is description'
+}
+```
+Output without `...` Spread operator
+```typescript
+{
+testObj: {
+      name: 'this is name',
+      description: 'this is description'
+      }
+}
+```
+#### Override property
+- override property `name`
+```typescript
+const spreadopeartor = {
+    ...testObj,
+    name: 'overriden name'
+};
+```
+Output will be 
+```typescript
+{
+    name: 'overriden name',
+    description: 'this is description'
+}
+```
+
