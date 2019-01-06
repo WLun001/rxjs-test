@@ -80,3 +80,15 @@ Output will be
 }
 ```
 
+
+### Wrap variable into object
+```typescript
+const name = 'example name';
+const wrapper = {name};
+```
+Output will be 
+```typescript
+{
+  name: 'example name'
+}
+```
