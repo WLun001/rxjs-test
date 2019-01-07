@@ -107,8 +107,8 @@ firstObservable.subscribe(res => {
 ##### apply operator like this
 ```typescript
 firstObservable.pipe(
-    map(value => value),
-    switchMap(value => value > 2 ? secondObservable : of())
+    filter(value => value > 2),
+    switchMap(value => secondObservable)
 ).subscribe(value => {
     //do someting
 });
@@ -135,8 +135,8 @@ ob1.subscribe((num ) => {
 which can be refactor with operators
 ```typescript
 ob1.pipe(
-    map(num => num),
-    switchMap(num => num % 2 === 0 ? ob2 : of())
+    filter(num => num % 2 === 0),
+    switchMap(num => ob2)
 ).subscribe(words => console.log(words));
 ```
 
